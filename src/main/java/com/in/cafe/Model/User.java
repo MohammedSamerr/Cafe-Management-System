@@ -6,6 +6,8 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @NamedQuery(name = "User.findByEmailId", query = "select u from User u where u.email=:email")
@@ -46,6 +48,16 @@ public class User implements Serializable {
     @Column(name = "status")
     private String status;
 
-    @Column(name = "role")
-    private String role;
+    @Column(name = "roles")
+    private String roles;
+
+
+// User_role Tabel
+//------------------------------------------------------------------------------------------------------
+//    @ManyToMany(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+//    @JoinTable(name = "user_roles",joinColumns = @JoinColumn(name="user_id",referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"))
+//    private List<Roles> roles = new ArrayList<>();
+
+
 }
